@@ -1,0 +1,92 @@
+<!DOCTYPE aesl-source>
+<network>
+
+
+<!--list of global events-->
+<event size="1" name="pair_run"/>
+
+
+<!--list of constants-->
+
+
+<!--show keywords state-->
+<keywords flag="true"/>
+
+
+<!--node thymio-II-->
+<node nodeId="2452" name="thymio-II"># reset outputs
+call sound.system(-1)
+call leds.top(0,0,0)
+call leds.bottom.left(0,0,0)
+call leds.bottom.right(0,0,0)
+call leds.circle(0,0,0,0,0,0,0,0)
+
+onevent prox
+		when prox.horizontal[3] >= 10 and prox.horizontal[4] >= 10 do
+		motor.left.target = 0
+		motor.right.target = 200
+	end
+
+
+	when prox.horizontal[0] &lt;= 1000 and prox.horizontal[1] &lt;= 1000 and prox.horizontal[2] &lt;= 1000 and prox.horizontal[3] &lt;= 1000 and prox.horizontal[4] &lt;= 1000 do
+		motor.left.target = 25
+		motor.right.target = 25
+	end
+
+	when prox.horizontal[4] >= 10 do
+		motor.left.target = 0
+		motor.right.target = 50
+	end
+	
+	when prox.horizontal[3] >= 10 do
+		motor.left.target = 0
+		motor.right.target = 100
+	end
+
+	when prox.horizontal[2] >= 10 and prox.horizontal[3] >= 10 and prox.horizontal[4] >= 10 do
+		motor.left.target = -150
+		motor.right.target = 500
+	end
+
+	when prox.horizontal[0] >= 10 do
+		motor.left.target = 50
+		motor.right.target = 0
+	end
+
+	when prox.horizontal[1] >= 10 do
+		motor.left.target = 50
+		motor.right.target = 0
+	end
+	when prox.horizontal[2] >= 10 do
+		motor.left.target = 500
+		motor.right.target = -300
+	end
+	when prox.horizontal[0] >= 10 and prox.horizontal[1] >= 10 do
+		motor.left.target = 200
+		motor.right.target = 0
+	end
+
+	when prox.horizontal[0] >= 10 and prox.horizontal[1] >= 10 and prox.horizontal[2] >= 10 do
+		motor.left.target = 500
+		motor.right.target = -100
+	end
+
+	when prox.horizontal[0] >= 10 and prox.horizontal[1] >= 10 and prox.horizontal[2] >= 10 and prox.horizontal[3] >= 10 do
+		motor.left.target = 500
+		motor.right.target = -500
+	end
+
+	when prox.horizontal[1] >= 10 and prox.horizontal[2] >= 10 and prox.horizontal[3] >= 10 and prox.horizontal[4] >= 10 do
+		motor.left.target = -500
+		motor.right.target = 500
+	end
+	when prox.horizontal[1] >= 10 and prox.horizontal[2] >= 10 and prox.horizontal[3] >= 10 and prox.horizontal[4] >= 10
+	and prox.horizontal[0] >= 10 do
+		motor.left.target = -500
+		motor.right.target = 500
+	end
+
+</node>
+
+
+</network>
