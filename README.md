@@ -1,2 +1,2 @@
 # thymio-art
-Test
+Swarms of physical Thymio II robots performing different tasks.
